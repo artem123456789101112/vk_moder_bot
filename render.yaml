@@ -1,0 +1,12 @@
+services:
+  - type: worker
+    name: vk-moder-bot
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python vk_moder_bot.py"
+    envVars:
+      - key: VK_TOKEN
+        value: "твой_токен_группы"
+      - key: OWNER_ID
+        value: "твой_id"
