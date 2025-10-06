@@ -1,10 +1,16 @@
 services:
-  - type: web
+  - type: worker
     name: vk-moder-bot
     env: python
     plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python vk_moder_bot.py"
+    buildCommand: |
+      pip install -r requirements.txt
+    startCommand: |
+      python vk_moder_bot.py
     envVars:
-      - key: PORT
-        value: 10000
+      - key: TZ
+        value: Europe/Moscow
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PYTHONIOENCODING
+        value: utf-8
