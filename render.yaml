@@ -1,12 +1,10 @@
 services:
-  - type: worker
+  - type: web
     name: vk-moder-bot
     env: python
     plan: free
     buildCommand: "pip install -r requirements.txt"
     startCommand: "python vk_moder_bot.py"
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.10.12
-      - key: TZ
-        value: Europe/Moscow
+      - key: PORT
+        value: 10000
